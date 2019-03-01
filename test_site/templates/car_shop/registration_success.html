@@ -1,0 +1,50 @@
+{%  extends 'car_shop/Main.html' %}
+
+{% block style %}
+<style>
+
+    body {
+        background: linear-gradient(#088585, #12172b);
+        font-family: Calibri;
+        opacity: 0.9;
+    }
+
+</style>
+
+{% endblock %}
+{% block body %}
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <br><br>
+                <div class="modal-content popover-content">
+                    <h3 class="thanks text-center text-success"><em>{{ lastname }} {{ firstname }} {{ reporting }}</em>, спасибо, что выбрали именно нас.</h3>
+                    <br>
+                    <hr>
+                    <h3 class="text-center">
+                        <button class="btn btn-info btn-lg ">
+                            Будем ожидать вас - <big>{{ datetime }}</big>
+                        </button>
+                        <br><br>
+
+                        <button class="btn btn-info btn-lg ">
+                            Ваш специалист - <big>{{ profi }}</big>
+                        </button>
+                        <br><br>
+
+                        <button class="btn btn-info btn-lg ">
+                            Ваш автомобиль - <big>{{ auto }}</big>
+                        </button>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+</body>
+</html>

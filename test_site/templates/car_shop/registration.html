@@ -1,0 +1,157 @@
+{%  extends 'car_shop/Main.html' %}
+
+{%  block style %}
+    <style>
+
+*{box-sizing:border-box}
+
+body {
+    margin: 0;
+    background: linear-gradient(to top, #6e2285, #2b1418);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Calibri;
+    opacity: 0.9;
+
+}
+
+button {
+    border-radius: 15px;
+    transform: scale(0.9);
+    -moz-animation: 0.2s;
+}
+
+button:hover {
+    border-radius: 15px;
+    transform: scale(1);
+    -moz-animation: 0.2s;
+    box-shadow: 2px 2px 3px 2px rgba(110, 34, 133, 0.36);
+
+}
+
+
+.form-wrap {
+  width: 550px;
+  background: linear-gradient(to top, #9347fe, #224ff1);
+  border-radius: 20px;
+}
+.form-wrap *{transition: .1s linear}
+.profile {
+  width: 240px;
+  float: left;
+  text-align: center;
+  padding: 30px;
+    color: black;
+}
+form {
+  background: white;
+  float: left;
+  width: calc(100% - 240px);
+  padding: 50px;
+  border-radius: 0 20px 20px 0;
+  color: #7b7b7b;
+}
+
+form div {
+  margin-bottom: 15px;
+  position: relative;
+}
+h1 {
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+  margin-top: 60px;
+}
+
+label, span {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+input[type="text"], input[type="email"] {
+  width: 100%;
+  padding: 10px 15px;
+  border-width: 1px;
+  background: #e6e6e6;
+  outline: none;
+  margin: 0;
+}
+input[type="text"]:focus, input[type="email"]:focus {
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,.2);
+}
+
+select {
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 15px;
+  outline: 0;
+  border: 0;
+  background: #e6e6e6;
+  color: #7b7b7b;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+select::-ms-expand {
+  display: none;
+}
+.select-arrow {
+  position: absolute;
+  top: 38px;
+  right: 15px;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 8px 5px 0 5px;
+  border-color: #7b7b7b transparent transparent transparent;
+}
+button {
+  padding: 10px 0;
+  border-width: 0;
+  display: block;
+  width: 120px;
+  margin: 25px auto 0;
+  background: #0f90e6;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  text-transform: uppercase;
+}
+
+</style>
+{%  endblock %}
+
+{% block body %}
+
+    <div class="form-wrap">
+        <div class="profile"><img width='220' style="margin: 25px -20px;" src="https://amastercar.ru/img/auto_repair_device.jpg">
+            <h1>Запишитесь в автомастерскую<hr></h1>
+            <h3>Время работы: <br>пн-пт: 10-20 <br><hr>сб, вс: выходной</h3>
+            <h2 style="color:black;">Время диагностики:<br> <big>1 час</big> </h2>
+        </div>
+        <br>
+        <form method="post" action="registration">
+            {% csrf_token %}
+            <label for="dtp_input1">Время записи</label>
+            <div class="input-group date form_datetime" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+                <input name = "time" class="form-control" type="text" value="" >
+                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+            </div>
+            {{ past }}
+
+            {{ minutes }}
+
+            {{ form }}
+
+            <button type="submit">
+                Отправить
+            </button>
+        </form>
+    </div>
+
+{%  endblock %}
+
+</body>
+</html>
